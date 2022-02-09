@@ -1,1 +1,1 @@
-# tea-ucsd-website
+# TEA@UCSD Website

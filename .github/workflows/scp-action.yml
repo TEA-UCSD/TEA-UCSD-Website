@@ -18,4 +18,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "test/test.txt"
-        target: "/home/${{ secrets.USER }}/test"
+        target: "${{ secrets.HOME_DIR }}/test"

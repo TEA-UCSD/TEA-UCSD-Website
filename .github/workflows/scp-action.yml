@@ -1,0 +1,21 @@
+name: Upload files to UCSD's server
+
+on:
+  push:
+    branches:
+    - github-action
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copy files via ssh username, host, and password
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.HOSTNAME }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        source: "test"
+        target: "test"

@@ -17,5 +17,5 @@ jobs:
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "test"
-        target: "test"
+        source: "test/test.txt"
+        target: "/home/${{ secrets.USER }}/test"

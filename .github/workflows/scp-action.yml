@@ -12,15 +12,22 @@ jobs:
     steps:
     
     # Checkout
-    - uses: actions/checkout@master
-
-    # SCP to UCSD server and copy the website files
-    - name: Copy folder content recursively to remote
-      uses: garygrossgarten/github-action-scp@release
+    - name: Checkout the repo
+      uses: actions/checkout@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        local: "./test"
-        remote: "${{ secrets.HOME_DIR }}/test/"
+        path: my-repo
+
+    - name: Upload repo to remote server
+      run: |
+        scp -r -P ${{ secrets.PORT }} my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ seccrets.HOME_DIR }}/test
+
+    # # SCP to UCSD server and copy the website files
+    # - name: Copy folder content recursively to remote
+    #   uses: garygrossgarten/github-action-scp@release
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USER }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     port: ${{ secrets.PORT }}
+    #     local: "./test"
+    #     remote: "${{ secrets.HOME_DIR }}/test/"

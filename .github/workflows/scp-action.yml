@@ -19,7 +19,7 @@ jobs:
 
     - name: Upload repo to remote server
       run: |
-        scp -r -P ${{ secrets.PORT }} my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ seccrets.HOME_DIR }}/test
+        scp -r -P ${{ secrets.PORT }} my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test
 
     # # SCP to UCSD server and copy the website files
     # - name: Copy folder content recursively to remote

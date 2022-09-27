@@ -14,6 +14,13 @@ jobs:
     # Checkout
     - uses: actions/checkout@master
 
+    # Runs a set of commands using the runners shell
+    - name: Run a multi-line script
+      run: |
+        mkdir ../build
+        cp -TR . ../build
+        tar -cvf deploy.tar ../build/
+
     # SCP to UCSD server and copy the website files
     - name: Copy files via ssh username, host, and password
       uses: appleboy/scp-action@master
@@ -22,5 +29,5 @@ jobs:
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "*"
+        source: "deploy.tar"
         target: "${{ secrets.HOME_DIR }}/test"

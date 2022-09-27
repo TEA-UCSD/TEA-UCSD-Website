@@ -22,5 +22,5 @@ jobs:
         username: ${{ secrets.USER }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        local: "test"
-        remote: "${{ secrets.HOME_DIR }}/test"
+        local: "./test"
+        remote: "${{ secrets.HOME_DIR }}/test/"

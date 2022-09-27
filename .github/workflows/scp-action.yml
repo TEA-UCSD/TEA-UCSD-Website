@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
+    - name: Install sshpass
+      run: sudo apt install -y sshpass
+
     # Checkout
     - name: Checkout the repo
       uses: actions/checkout@master
@@ -19,7 +22,7 @@ jobs:
 
     - name: Upload repo to remote server
       run: |
-        scp -r -P ${{ secrets.PORT }} my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test
+        sshpass -p ${{ secrets.PASSWORD }} scp -r my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test/
 
     # # SCP to UCSD server and copy the website files
     # - name: Copy folder content recursively to remote

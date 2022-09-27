@@ -8,11 +8,11 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     
     - name: Install sshpass
-      run: brew install hudochenkov/sshpass/sshpass
+      run: sudo apt install -y sshpass
 
     # Checkout
     - name: Checkout the repo

@@ -22,7 +22,7 @@ jobs:
 
     - name: Upload repo to remote server
       run: |
-        sshpass -p ${{ secrets.PASSWORD }} scp -r my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test/
+        sshpass -p "${{ secrets.PASSWORD }}" scp -r my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test/
 
     # # SCP to UCSD server and copy the website files
     # - name: Copy folder content recursively to remote

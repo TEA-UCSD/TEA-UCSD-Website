@@ -11,9 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - name: checkout
-      uses: actions/checkout@v3.0.2
+    # Checkout
+    - uses: actions/checkout@master
 
+    # SCP to UCSD server and copy the website files
     - name: Copy files via ssh username, host, and password
       uses: appleboy/scp-action@master
       with:

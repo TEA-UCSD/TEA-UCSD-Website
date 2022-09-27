@@ -22,4 +22,4 @@ jobs:
 
     - name: Upload repo to remote server
       run: |
-        sshpass -p "${{ secrets.PASSWORD }}" scp -o StrictHostKeyChecking=no -p ${{ secrets.PORT }} -r my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test/
+        sshpass -p "${{ secrets.PASSWORD }}" scp -p ${{ secrets.PORT }} -r my-repo ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.HOME_DIR }}/test/
